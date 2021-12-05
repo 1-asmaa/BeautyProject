@@ -1,0 +1,123 @@
+<div class="modal-body">
+    <div class="row" style="background-color:#DBB2D2 ;margin-top: -1rem;">
+        <p style="margin-left: auto;margin-right: auto;margin-top: 25px;
+        font-size: 20px;font-family: 'Mada', sans-serif;">View Beauty Provider Details</p>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid#DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Owner Name</h6>
+                    <p class="card-text text-left" style="color:#DBB2D2;margin-top: -5px;font-size: 18px;">
+                        {{oneBeauty.owner_name}}</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid #DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Beauty Name</h6>
+                    <p class="card-text text-left" style="color: #DBB2D2;margin-top: -5px;font-size: 18px;">
+                        {{oneBeauty.beaut_name}}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid#DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Email</h6>
+                    <p class="card-text text-left" style="color:#DBB2D2;margin-top: -5px;font-size: 17px;">
+                        {{oneBeauty.email}}</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid #DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Mobile Number</h6>
+                    <p class="card-text text-left" style="color: #DBB2D2;margin-top: -5px;font-size: 18px;">
+                        {{oneBeauty.mobile}}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid#DBB2D2;height: 80px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Photo</h6>
+                    <p class="card-text text-left " style="color:#DBB2D2;margin-top: -5px;font-size: 18px;">
+                        <img src="{{oneBeauty.photo}}" width="70px" height="70px"
+                            style="border-radius: 50%;margin-left: 5rem;margin-top: -2rem;"> </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid #DBB2D2;height: 80px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2"> Instagram Link </h6>
+                    <a class="card-text text-left" href=" {{oneBeauty.insta_link}}"
+                        style="font-size: 18px;outline: none;">
+                        Instagram Link
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid#DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Address</h6>
+                    <p class="card-text text-left" style="color:#DBB2D2;margin-top: -5px;font-size: 18px;">
+                        {{oneBeauty.address}} </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid #DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Services</h6>
+                    <p class="card-text text-left" style="color: #DBB2D2;margin-top: -5px;font-size: 18px;">
+                        {{oneBeauty.services[0].name_en}} - {{oneBeauty.services[1].name_en}} -
+                        {{oneBeauty.services[2].name_en}}
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid#DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Address</h6>
+                    <p class="card-text text-left" style="color:#DBB2D2;margin-top: -5px;font-size: 18px;">
+                        {{oneBeauty.address}} </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid #DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Location</h6>
+                    <p class="card-text text-left" style="color: #DBB2D2;margin-top: -5px;font-size: 18px;">
+                        {{oneBeauty.services[0].location}} 
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

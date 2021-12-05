@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+.appSideInfo {
+    display: inline-block;
+    width: 79%;
+    height: 84.4em;
+    background-color:#EEEAEA;
+  }
+  
+  .appSideInfo .infoContent {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    
+  }
+ 
+
+p{
+    color: #5A5959;
+    font-size: 20px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: bold;
+}
+.table{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}

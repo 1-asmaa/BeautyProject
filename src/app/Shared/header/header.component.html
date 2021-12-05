@@ -1,0 +1,40 @@
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1" 
+style="width: 79%;float: right;background-color: white;">
+    <a class="navbar-brand" href="#" style="color: #5A5959;font-weight: bold;font-size: 20px;">Beaut App Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+      aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+      
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item" >
+          <a class="nav-link waves-effect waves-light " >
+            <i class="fas fa-bell" style="color: #707070 ;font-size: 25px;margin-top: 1rem;"></i>
+          </a>
+        </li>
+        <li class="nav-item avatar dropdown " >
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+         
+            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle "
+              alt="avatar image" width="50px" height="50px" style="margin-right: 5rem;display: inline-block;"> 
+              <p style="display: inline-block;margin-top: -10px;margin-left: -60px;">{{name}}</p>
+
+          </a>
+          <div class="dropdown-menu  dropdown-secondary ="
+            aria-labelledby="navbarDropdownMenuLink-55" >
+            <a class="dropdown-item"  ><i class="far fa-user"></i> Edit Profile</a>
+            <hr>
+            <a class="dropdown-item" (click)="OnLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            
+          </div>
+        
+        </li>
+        
+        
+      </ul>
+    </div>
+  </nav>
+  <!--/.Navbar -->

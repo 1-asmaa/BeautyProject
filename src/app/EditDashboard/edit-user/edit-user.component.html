@@ -1,0 +1,56 @@
+
+<div class="modal-body">
+    <div class="row" style="background-color: #DBB2D2;width: 33.2rem;margin-top: -1rem;margin-left: -1rem;">
+        <p style="color:white;margin-left: auto;margin-right: auto;margin-top: 10px;">Edit User Information</p>
+    </div>
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()" *ngIf="editForm" class="mt-2">
+        <div class="form-group row d-flex  ">
+            <label for="lastName" class="col-form-label col-sm-4 text-left">ID</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="user_id" class="form-control" style="width: 15.5rem;"/>
+                <div *ngIf="editFormData.user_id.invalid &amp;&amp; (editFormData.user_id.dirty || editFormData.user_id.touched)"
+                    class="alert-danger">
+                    <span>ID is required!</span>
+                </div>
+            </div>
+        </div> 
+        <div class="form-group row d-flex ">
+            <label for="firstName" class="col-form-label col-sm-4 text-left">Customer name</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="name" class="form-control" style="width: 15.5rem;" />
+                <div *ngIf="editFormData.name.invalid &amp;&amp; (editFormData.name.dirty || editFormData.name.touched)"
+                    class="alert-danger">
+                    <span>name is required!</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row d-flex ">
+            <label for="firstName" class="col-form-label col-sm-4 text-left">Email</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="email" class="form-control" style="width: 15.5rem;" />
+                <div *ngIf="editFormData.email.invalid &amp;&amp; (editFormData.email.dirty || editFormData.email.touched)"
+                    class="alert-danger">
+                    <span>name is required!</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row d-flex ">
+            <label for="firstName" class="col-form-label col-sm-4 text-left">Mobile number</label>
+            <div class="col-sm-5">
+                <input type="text" formControlName="mobile" class="form-control" style="width: 15.5rem;" />
+                <div *ngIf="editFormData.mobile.invalid &amp;&amp; (editFormData.mobile.dirty || editFormData.mobile.touched)"
+                    class="alert-danger">
+                    <span>name is required!</span>
+                </div>
+            </div>
+        </div>
+
+        
+       
+        <div class="modal-footer" >
+            <button [disabled]="isLoading" class="btn  mr-2" (click)="modal.close('Cancel')" style="background-color:#DBB2D2;color: white;width:100px" >Cancel</button>
+            <button  [disSabled]="isLoading" class="btn  mr-2" style="background-color:  #DBB2D2;color: white;width:100px"  >Save</button>
+        </div>
+ 
+    </form>
+</div>

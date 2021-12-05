@@ -1,0 +1,181 @@
+<app-side></app-side>
+<app-header></app-header>
+
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="row mt-5" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: 5rem;border-radius:10px;">
+            <div class="col-md-4 " style="margin-top: 1.5rem;">
+                <p>Services Management </p>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4" style="margin-top: 1.5rem;">
+                <button class="btn" (click)="open(content)"
+                style="background-color: #DBB2D2;color: white;font-weight:bold;">Add
+                    Service</button>
+
+
+            </div>
+
+        </div>
+        
+        <div class="row" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: auto;border-radius:10px;margin-top: 2rem;">
+             <div class="form-group row  " style="width: 90%;margin-left: 2rem;">
+                
+                <select  class="form-control mt-3" style="height: 40px;" >
+                    <option disabled selected >Select The Beaut Provider</option>
+                    <option *ngFor="let item of provList" [value]="item.id">{{item.beaut_name}}</option>
+                </select>
+               
+            </div>
+            <div class="row" style="margin-left: 2rem;display: inline-block;">
+                <form class="example" >
+                    <button class="btn" style="background-color: #DBB2D2;color: white;height: 40px;width: 50px;margin-top: -5px;"><i class="fas fa-search" style="font-size: 18px;"></i></button>
+                    <input type="text" placeholder=" Search" name="search" style="width: 500px;height: 40px;outline:none;margin-top: rem;border: none;border: 1px solid #E4E2E2;">
+
+                    <button class="btn" style="background-color: #DBB2D2;color: white;height: 40px;width: 50px;
+                    margin-top: -5px;margin-left: 2rem;"><i class="fas fa-sliders-h" style="font-size: 27px;"></i></button>
+                    <select  class="form-control " style="height: 40px;width: 235px;display: inline-block;" >
+                        <option disabled selected>   Filter By</option>
+                        <option ></option>
+                    </select>
+                </form>
+            </div>
+                
+            
+            <table class="table table-bordered mt-4 ">
+                <thead style="background-color: #E4E2E2;">
+                    <tr>
+                        <th scope="col">Name Of Services</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Estimetied Time</th>
+                        <th scope="col">Additional Cost</th>
+                        <th scope="col">Actions</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of servList">
+                        <th scope="row">{{item.name_en}}</th>
+                        <td>{{item.price}} SAR</td>
+                        <td>{{item.estimated_time}} min</td>
+                        <td>{{item.bonus}}</td>
+
+                        <td>
+                            <div
+                                style="background-color: red ;border-radius: 50%;width:25px;height: 25px;display:inline-block;margin-left: 1rem;">
+                                <a (click)="editItem(item)">
+                                    <i class="fas fa-pen" style="color: white;font-size: 15px;"></i></a></div>
+
+                            <div
+                                style="background-color: green ;border-radius: 50%;width:25px;height: 25px;display:inline-block;margin-left: 1rem;">
+                                <a (click)="DeleteService(item.id)">
+                                    <i class="fas fa-trash" style="color: white;font-size: 15px;"></i></a></div>
+                        </td>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="row" style="width:100%;margin-left: 0rem;background-color: #DBB2D2;">
+        <p style="margin-left: auto;margin-right: auto;margin-top: 25px;
+        font-size: 20px;color: white;">Add New Category</p>
+    </div>
+    <div class="modal-body">  
+         <form style="margin-top: 2rem;" [formGroup]="catForm" (ngSubmit)="onSubmit()" >
+            <div class="row ml-auto mr-auto" style="width:100%">
+                <div style="margin-left: 1rem;">
+                    <label style="margin-right: 1rem;">Name Of Category (in Arabic)	</label>
+                        <input type="text" style="height:50px;width: 215px;" formControlName="name_ar" class="form-control"
+                            placeholder="Add Coupon Name" name="name_ar">
+                    
+                </div>
+                <div style="margin-left: 1rem;">
+                    <label style="margin-right: 1rem;">Name Of Category (in English)</label>
+                        <input type="text" style="height:50px;width: 215px;" formControlName="name_en" class="form-control"
+                            placeholder="Add Coupon Name" name="name_en">
+                    
+                </div>
+                <div style="margin-left: 1rem;">
+                    <label >Image Of Category</label><br>
+                    <div style="border: 1px solid rgb(209, 204, 204);height: 50px;width: 215px;
+                    border-radius:5px">    
+                    <input type="file"  (change)="onFileChanged($event)" accept=".png, .jpg, .jpeg"
+                    style="padding: 5px;margin-top: 0.4rem;"/> 
+            </div > 
+                </div>
+            </div>
+           <div class="row mt-3 ml-auto mr-auto">
+            <div style="margin-left: 1rem;">
+                <label style="margin-right: 1rem;">Details Of Category (in Arabic)	</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="details_ar" class="form-control"
+                        placeholder="Add Coupon Name" name="name_ar">
+                
+            </div>
+            <div style="margin-left: 1rem;">
+                <label style="margin-right: 1rem;">Details Of Category (in English)</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="details_en" class="form-control"
+                        placeholder="Add Coupon Name" name="name_en">
+                
+            </div>
+            <div style="margin-left: 1rem;">
+                <label style="margin-right: 1rem;"> Category </label>
+                        <select  class="form-control " style="height:50px;width: 215px;" formControlName="category_id">
+                            <option disabled selected >Select The Category</option>
+                            <option *ngFor="let item of categList" [value]="item.id">{{item.name_en}}</option>
+                        </select>
+            </div>
+           </div>
+
+           <div class="row mt-3 ml-auto mr-auto">
+            <div style="margin-left: 1rem;">
+                <label style="margin-right: 1rem;">Price</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="price" class="form-control"
+                        placeholder="Add Coupon Name" name="name_ar">
+                
+            </div>
+            <div style="margin-left: 1rem;">
+                <label style="margin-right: 1rem;">Estimated Time</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="estimated_time" class="form-control"
+                        placeholder="Add Coupon Name" name="name_en">
+                
+            </div>
+            <div style="margin-left: 1rem;">
+                <label style="margin-right: 1rem;">Location </label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="location" class="form-control"
+                        placeholder="Add Coupon Name" name="name_en">
+                
+            </div>
+           </div>
+
+           <div class="row mt-3 ml-auto mr-auto">
+            <div style="margin-left: 1rem;">
+                <label style="margin-right: 1rem;"> Beautician </label>
+                <select  class="form-control " style="height:50px;width: 215px;" formControlName="beautician_id">
+                    <option disabled selected >Select The Beautician</option>
+                    <option *ngFor="let item of provList" [value]="item.id">{{item.beaut_name}}</option>
+                </select>
+            </div>
+           
+           </div>
+            <div class="modal-footer " style="border: none;">
+                <button [disabled]="isLoading" class="btn  " style="background-color:  #DBB2D2;font-family: 'Almarai', sans-serif;
+                color: white;width:215px;height: 50px;font-size: 18px;margin-right: 4rem;
+               ">Save</button>
+            </div>
+        </form> 
+      
+    </div>
+
+</ng-template>

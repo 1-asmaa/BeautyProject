@@ -1,0 +1,252 @@
+<app-side></app-side>
+<app-header></app-header>
+
+<div class="appSideInfo">
+    <div class="infoContent">
+        <div class="row mt-5" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: 5rem;border-radius:10px;">
+            <div class="col-md-3 " style="margin-top: 1.5rem;">
+                <p>Orders Managements</p>
+            </div>
+            <div class="col-md-5">
+
+            </div>
+            <div class="col-md-4" style="margin-top: 0.8rem;">
+                <button class="btn" (click)="open(content)"
+                    style="background-color: #DBB2D2;color: white;font-weight:bold;width: 150px;height: 50px;">Add New Order</button>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="row" style="background-color: white;width: 90%;margin-left: auto;margin-right: auto;
+      height: auto;border-radius:10px;margin-top: 2rem;">
+            <div class="row" style="margin-left: 2rem;display: inline-block;margin-top: 2rem;">
+                <form class="example">
+                    <button class="btn"
+                        style="background-color: #DBB2D2;color: white;height: 40px;width: 50px;margin-top: -5px;"><i
+                            class="fas fa-search" style="font-size: 27px;"></i></button>
+                    <input type="text" placeholder=" Search" name="search"
+                        style="width: 500px;height: 40px;outline:none;margin-top: rem;border: none;border: 1px solid #E4E2E2;">
+
+                    <button class="btn" style="background-color: #DBB2D2;color: white;height: 40px;width: 50px;
+                margin-top: -5px;margin-left: 2rem;"><i class="fas fa-sliders-h" style="font-size: 27px;"></i></button>
+                    <select class="form-control " style="height: 40px;width: 235px;display: inline-block;">
+                        <option disabled selected> Filter By</option>
+                        <option></option>
+                    </select>
+                </form>
+            </div>
+           
+            
+            <table class="table table-bordered mt-5 ">
+                <thead style="background-color: #E4E2E2;">
+                    <tr>
+                        <th scope="col">Order No.</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Mobile Number </th>
+                        <th scope="col" style="width:7rem">Location</th>
+                        <th scope="col">Beaut Name</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let item of orderList;let i=index;" >
+                        <td >{{item.order_num}}</td>
+                        <td>{{item.user.name}}</td>
+                        <td>{{item.user.mobile}}</td>
+                        
+                        <div *ngIf="item.user_location.length == 0"> 
+                            <td  style="height: 5rem;width: 7rem;">ــــــ</td>
+                        </div>
+                        <div  *ngIf="item.user_location.length > 0" >
+                        <td *ngFor="let locat of item.user_location" style="height: 5rem;width: 7rem;" >{{locat.address}}</td></div>
+                        <td>{{item.beautician.beaut_name}}</td>
+                        <td> <button (click)="editItem1(item)" class="btn" style="background-color: #DBB2D2;height: 2rem;padding: 5px;border-radius: 5px;
+                       color: white;font-weight: bold;height: 35px;">{{item.order_status}}</button></td>
+                        <td> 
+                            <button class="btn" (click)="viewCoupon(item)" style="background-color:#3F4468; color: white;">More Details</button> 
+                        </td>
+
+                        <td>
+                        
+                            <div
+                                style="background-color: red ;border-radius: 50%;width:25px;height: 25px;display: inline-block;margin-top: 5px;">
+                                <a href="">
+                                    <i class="fas fa-pen" style="color: white;font-size: 13px;"></i></a></div>
+
+                            <div
+                                style="background-color: green ;border-radius: 50%;width:25px;height: 25px;margin-left:5px ;display: inline-block;">
+                                <a (click)="DeleteOrder(item.id)">
+                                    <i class="fas fa-trash" style="color: white;font-size: 13px;"></i></a></div> 
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+            
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="row" style="width:100%;margin-left: 0rem;background-color: #DBB2D2;">
+        <p style="margin-left: auto;margin-right: auto;margin-top: 25px;
+        font-size: 20px;color: white;">Add Coupon</p>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="issueForm" (ngSubmit)="onSubmit()" style="margin-top: 2rem;">
+            <div class="row ml-auto mr-auto" style="width:100%">
+                <div style="margin-left: 1rem;">
+                    <label style="margin-right: 1rem;">Date</label>
+                    <form class="example form-group" [formGroup]="issueForm">
+                        <input type="date" style="height:50px;width: 215px;" formControlName="date" class="form-control"
+                             name="date">
+
+                    </form>
+                </div>
+                <div style="margin-left: 1rem;">
+                    <label style="margin-right: 1rem;">Time</label>
+                    <form class="example form-group" [formGroup]="issueForm">
+                        <input type="time" style="height:50px;width: 215px;" formControlName="time"
+                            class="form-control" name="time">
+
+                    </form>
+                </div>
+                <div style="margin-left: 1rem;">
+                    <label>Coupon Beaut Provider</label>
+                    <form class="form-inline example" >
+                        <div class="form-group" [formGroup]="issueForm">
+                            <select class="form-control" style="width: 215px;height:50px; " 
+                            formControlName="beautician_id" name="beautician_id">
+                                <option value="" disabled selected> Choose Beaut Provider</option>
+                                <option *ngFor="let item of beautList" [value]="item.id">
+                                    {{item.beaut_name}}
+                                </option>
+                                
+                            </select>
+
+                        </div>
+
+                    </form>
+
+                </div>
+                
+           
+            </div>
+            <div class="row ml-auto mr-auto mt-1">  
+                <label  style="margin-left: 1rem;">Payment</label>
+                <div style="height: 60px;font-size: 16px;display: inline-block;
+                margin-top: 1.9rem;margin-left: -3.5rem;border: 1px solid gray;border-radius: 5px ;height: 50px;">
+                    
+                    <div class="form-check form-check-inline mt-3 ml-1 " 
+                    style="display:inline-block;">
+                      <input type="radio" class="form-check-input"   formControlName="payment_method" 
+                      name="payment_method" value="1"  >
+                      <label class="form-check-label mr-2" for="materialInline1">Credit Card </label>
+                    </div>
+                    <div class="form-check form-check-inline mt-3 "  
+                    style="display:inline-block;margin-left:2rem ;">
+                      <input type="radio" class="form-check-input"  formControlName="payment_method" 
+                      name="payment_method" value="2"  >
+                      <label class="form-check-label mr-2" for="materialInline2">Payment </label>
+                    </div>
+                    <div class="form-check form-check-inline mt-3"  
+                    style="display:inline-block;margin-left:2rem ;">
+                      <input type="radio" class="form-check-input"  formControlName="payment_method" 
+                      name="payment_method" value="3"  >
+                      <label class="form-check-label mr-2" for="materialInline2">Cash </label>
+                    </div>
+                  </div>
+                <div formArrayName="services" >
+                    <label  style="margin-left: 1rem;">Services</label>
+                    <ul style="list-style: none;">
+                      <li *ngFor="let skill of servicesArray.controls; let i=index">
+                        <div [formGroupName]="i" [formGroup]="issueForm" >
+                          
+                          <select formControlName="id" style="height: 50px;width: 310px;margin-left: -2rem;margin-top: rem;" >
+                            <option selected disabled value="">Choose Your service</option>
+                            <option *ngFor="let item of servList" [value]="item.id">{{item.name_en}}</option>
+              
+                          </select>
+              
+                        </div>
+              
+              
+                      </li>
+                    </ul>
+                  </div>
+                <!-- <div style="margin-left: 0.3rem;">
+                    <label style="margin-left: 1rem;"> Date valid until</label>
+                    <form class="example form-group" [formGroup]="issueForm" >
+                        <span style="display: inline-block;margin-left: 0.8rem;">
+                            <input type="date" style="height:50px;float: right;width: 215px;"
+                                formControlName="valid_until" class="form-control" placeholder="choose date valid until"
+                                name="search2">
+                        </span>
+                    </form>
+                </div> -->
+               
+                <div class="row ml-auto mr-auto" style="width:100%">
+                    <!-- <div style="margin-left: 1rem;">
+                        <label>Coupon Beaut Provider</label>
+                        <form class="form-inline example" >
+                            <div class="form-group" [formGroup]="issueForm">
+                                <select class="form-control" style="width: 215px;height:50px; " 
+                                formControlName="coupon" name="coupon">
+                                    <option value="" disabled selected> Choose Beaut Provider</option>
+                                    <option *ngFor="let item of couponList" [value]="item.code">
+                                        {{item.code}}
+                                    </option>
+                                    
+                                </select>
+    
+                            </div>
+    
+                        </form>
+    
+                    </div> -->
+                    <div style="margin-left: 1rem;">
+                        <label style="margin-right: 1rem;">Coupon name</label>
+                        <form class="example form-group" [formGroup]="issueForm">
+                            <input type="text" style="height:50px;width: 215px;" formControlName="coupon" class="form-control"
+                                placeholder="Add Coupon Name" name="coupon">
+    
+                        </form>
+                    </div>
+                    <div formArrayName="person_num" >
+                        <label  style="margin-left: 1rem;">Services</label>
+                        <ul style="list-style: none;">
+                          <li *ngFor="let skill of person_num.controls; let i=index">
+                            <div [formGroupName]="i" [formGroup]="issueForm" >
+                              <input type="text" formControlName="id" style="height: 50px;width: 310px;margin-left: -2rem;margin-top: rem;" >
+                              
+                  
+                            </div>
+                  
+                  
+                          </li>
+                        </ul>
+                      </div>
+                    
+               
+                </div>
+               
+               
+                <div class="modal-footer ml-1" style="border: none;">
+                    <button [disabled]="isLoading" class="btn  " style="background-color:  #DBB2D2;font-family: 'Almarai', sans-serif;
+                    color: white;width:215px;height: 50px;font-size: 18px;
+                   ">Save</button>
+                </div>
+            </div>
+            
+            
+        </form>
+    </div>
+
+</ng-template>

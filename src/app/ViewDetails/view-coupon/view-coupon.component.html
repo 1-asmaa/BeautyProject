@@ -1,0 +1,73 @@
+<div class="modal-body">
+    <div class="row" style="background-color:#DBB2D2 ;margin-top: -1rem;">
+        <p style="margin-left: auto;margin-right: auto;margin-top: 25px;
+        font-size: 20px;font-family: 'Mada', sans-serif;">View Coupon Details</p>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid#DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2" >Coupon Name</h6>
+                    <p class="card-text text-left" style="color:#DBB2D2;margin-top: -5px;font-size: 18px;">{{oneCoupon.code}}</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid #DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Coupon Discount</h6>
+                    <p class="card-text text-left" style="color: #DBB2D2;margin-top: -5px;font-size: 18px;">{{oneCoupon.value}}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid #DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Type of Discount</h6>
+                    <p class="card-text text-left" style="color:#DBB2D2;margin-top: -5px;font-size: 18px;">{{oneCoupon.type}}</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid #DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Date valid from</h6>
+                    <p class="card-text text-left" style="color:#DBB2D2;margin-top: -5px;font-size: 18px;">{{oneCoupon.valid_from}}</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+       
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid #DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Date valid until</h6>
+                    <p class="card-text text-left" style="color:#DBB2D2;margin-top: -5px;font-size: 18px;">{{oneCoupon.valid_until}}</p>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 mt-3">
+            <div class="card" style="width: 15rem;border: 1px solid #DBB2D2;height: 70px;">
+                <div class="card-body" style="margin-right: auto;margin-top: -1rem;">
+                    <h6 class="card-title text-left mt-2">Beautician Name</h6>
+                    <p class="card-text text-left" style="color:#DBB2D2;margin-top: -5px;font-size: 18px;">{{oneCoupon.beautician[0].beaut_name}}</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

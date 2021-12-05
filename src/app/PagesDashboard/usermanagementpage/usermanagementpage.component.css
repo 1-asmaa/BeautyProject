@@ -1,0 +1,11 @@
+a{
+    cursor: pointer;
+}
+
+.block{
+    background-color: red;
+}
+.unblock{
+    background-color: #3F4468;
+
+}

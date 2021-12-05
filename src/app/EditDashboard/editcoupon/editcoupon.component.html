@@ -1,0 +1,85 @@
+<div class="modal-body">
+    <div class="row" style="background-color: #DBB2D2;width: 33.2rem;margin-top: -1rem;margin-left: -1rem;">
+        <p style="color:white;margin-left: auto;margin-right: auto;margin-top: 10px;">Edit Coupon</p>
+    </div>
+
+    <form style="margin-top: 2rem;" [formGroup]="catForm" (ngSubmit)="onSubmit()">
+        <div class="row ml-auto mr-auto" style="width:100%">
+            <div style="margin-left: 1rem;">
+                <label style="margin-right: 1rem;">Coupon name </label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="code" class="form-control"
+                    placeholder="Add Coupon Name" name="code">
+
+            </div>
+            <div style="margin-left: 1rem;">
+                <label style="margin-right: 1rem;">Coupon discount</label>
+                <input type="text" style="height:50px;width: 215px;" formControlName="value" 
+                class="form-control" placeholder="Add Coupon discount" name="value">
+
+            </div>
+            
+             <div style="margin-left: 1rem;">
+                <label>Type Of Discount</label>
+                <form class="form-inline example" >
+                    <div class="form-group" [formGroup]="catForm">
+                        <select  class="form-control"   style="width: 215px;height:50px; " 
+                        formControlName="type" name="type">
+                            <option [value]="" disabled selected> Choose Type Of Discount</option>
+                            <option value="1">
+                                Percentage
+                            </option>
+                            <option value="0">
+                                Cost
+                            </option>
+                        </select>
+        
+                    </div>
+        
+                </form>
+        
+            </div> 
+           
+            <div style="margin-left: 1rem;">
+                <label>Coupon Beaut Provider</label>
+                <form class="form-inline example" >
+                    <div class="form-group" [formGroup]="catForm">
+                        <select class="form-control" style="width: 215px;height:50px; " 
+                        formControlName="beautician_id" name="beautician_id">
+                            <option  disabled selected> Choose Beaut Provider</option>
+                            <option *ngFor="let item of beautList" value="item.id" >
+                                {{item.beaut_name}}
+                            </option>
+                            
+                        </select>
+        
+                    </div>
+        
+                </form>
+        
+            </div> 
+        
+        
+        </div>
+
+<div class="row row ml-auto mr-auto" style="width:100%">   
+    <div style="margin-left: 1rem;">
+        <label style="margin-right: 1rem;">Date valid from</label>
+        <input type="text" style="height:50px;width: 215px;" formControlName="valid_from" 
+        class="form-control" value="valid_from" name="valid_from" >
+
+    </div>
+    <div style="margin-left: 1rem;">
+        <label style="margin-right: 1rem;">Date valid until</label>
+        <input type="text" style="height:50px;width: 215px;" formControlName="valid_until" 
+        class="form-control" placeholder="Add Coupon Name" name="valid_until">
+
+    </div>
+</div>
+
+<div class="modal-footer " style="border: none;">
+    <button [disabled]="isLoading" class="btn  " style="background-color:  #DBB2D2;font-family: 'Almarai', sans-serif;
+            color: white;width:215px;height: 50px;font-size: 18px;margin-right: 4rem;
+           ">Save</button>
+</div>
+</form>
+</div>

@@ -1,0 +1,45 @@
+
+<div class="modal-body">
+    <div class="row" style="background-color: #DBB2D2;width: 33.2rem;margin-top: -1rem;margin-left: -1rem;">
+        <p style="color:white;margin-left: auto;margin-right: auto;margin-top: 10px;">Edit City</p>
+    </div>
+    <form style="margin-top: 2rem;"  [formGroup]="catForm" (ngSubmit)="onSubmit()" >
+        
+        <div class="row ml-auto mr-auto" style="width:100%">
+            <div style="margin-left: 1rem;">
+                <label style="margin-right: 1rem;">Name Of Category (in Arabic)	</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="id" class="form-control"
+                        placeholder="Add Coupon Name" name="id">
+                
+            </div>
+            <div style="margin-left: 1rem;">
+                <label style="margin-right: 1rem;">Name Of Category (in Arabic)	</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="name_ar" class="form-control"
+                        placeholder="Add Coupon Name" name="name_ar">
+                
+            </div>
+            <div style="margin-left: 1rem;margin-top: 1rem;">
+                <label style="margin-right: 1rem;">Name Of Category (in English)</label>
+                    <input type="text" style="height:50px;width: 215px;" formControlName="name_en" class="form-control"
+                        placeholder="Add Coupon Name" name="name_en">
+                
+            </div>
+            <div style="margin-left: 1rem;margin-top: 1rem;">
+                <label >Image Of Category</label><br>
+                <div style="border: 1px solid rgb(209, 204, 204);height: 50px;width: 215px;
+                border-radius:5px">   
+                <input type="file"  (change)="onFileChanged($event)"  accept=".png, .jpg, .jpeg"
+                style="padding: 5px;margin-top: 0.4rem;"/> 
+                <img src="">
+        </div > 
+            </div>
+        </div>
+       
+        
+        <div class="modal-footer " style="border: none;">
+            <button [disabled]="isLoading" class="btn  " style="background-color:  #DBB2D2;font-family: 'Almarai', sans-serif;
+            color: white;width:420px;height: 50px;font-size: 18px;
+           ">Save</button>
+        </div>
+    </form> 
+</div>
